@@ -14,14 +14,18 @@ Simple API that crawles the website sede.administracionespublicas.gob.es and pub
 
 # Api
 
+    http://localhost:8080/provincias
+
+![](doc/provincias.png)
+
+
+    http://localhost:8080/tramites
+
+![](doc/tramites.png)
+
     http://localhost:8080/oficinas
 
 ![](doc/oficinas.png)
-
-
-    http://localhost:8080/oficinas
-
-![](doc/tramites.png)
 
 
 # Ref
