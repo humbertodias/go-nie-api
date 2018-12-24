@@ -2,6 +2,12 @@
 
 Simple API that crawles the website sede.administracionespublicas.gob.es and publish the offices and procedures that each one can deal with.
 
+# Clone
+
+    mkdir -p ~/go/src/github.com/humbertodias && cd $_
+    git clone https://github.com/humbertodias/go-rest-api
+    cd go-rest-api
+
 # Run
 
     make run
