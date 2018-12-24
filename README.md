@@ -1,10 +1,10 @@
-# API rest using GO
+# API using GO
 
+Simple API that crawles the website sede.administracionespublicas.gob.es and publish the offices and procedures that each one can deal with.
 
 # Run
 
     make run
-
 
 # Api
 
