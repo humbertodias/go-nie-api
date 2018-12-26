@@ -3,6 +3,7 @@ BUILD_NAME=nie-api
 
 get:
 	go get -u github.com/gin-gonic/gin/...
+	go get -u github.com/humbertodias/go-nie-crawler
 
 run:
 	go run main.go
