@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/humbertodias/go-rest-api/handler"
+	"github.com/humbertodias/go-nie-api/handler"
 )
 
 const PORT = 8080

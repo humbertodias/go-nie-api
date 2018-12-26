@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/humbertodias/go-crawler-demo/nie"
+	"github.com/humbertodias/go-nie-crawler/nie"
 )
 
 var provincias = nie.ScrapyProvincias()
@@ -22,34 +22,23 @@ func ShowApi(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetProvincias(w http.ResponseWriter, r *http.Request) {
-	js, err := json.Marshal(provincias)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	w.Header().Set("Content-Type", "application/json")
-	w.Write(js)
+	ToJson(provincias, w)
 }
 
 func GetTramites(w http.ResponseWriter, r *http.Request) {
-	js, err := json.Marshal(tramites)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	w.Header().Set("Content-Type", "application/json")
-	w.Write(js)
+	ToJson(tramites, w)
 }
 
 func GetOficinas(w http.ResponseWriter, r *http.Request) {
-	js, err := json.Marshal(tramites)
+	ToJson(oficinas, w)
+}
+
+func ToJson(arr interface{}, w http.ResponseWriter) {
+	js, err := json.Marshal(arr)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(js)
 }

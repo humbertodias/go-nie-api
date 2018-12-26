@@ -5,8 +5,8 @@ Simple API that crawles the website sede.administracionespublicas.gob.es and pub
 # Clone
 
     mkdir -p ~/go/src/github.com/humbertodias && cd $_
-    git clone https://github.com/humbertodias/go-rest-api
-    cd go-rest-api
+    git clone https://github.com/humbertodias/go-nie-api
+    cd go-nie-api
 
 # Run
 
