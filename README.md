@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/humbertodias/go-nie-api.svg?branch=master)](https://travis-ci.org/humbertodias/go-nie-api)
+
 # API using GO
 
 Simple API that crawles the website sede.administracionespublicas.gob.es and publish the offices and procedures that each one can deal with.
