@@ -47,3 +47,8 @@ clean-dist:
 
 clean:  clean-dist
 
+docker-build:
+	docker build . -t nie-api
+
+docker-run:
+	docker run -p 8080:8080 nie-api
