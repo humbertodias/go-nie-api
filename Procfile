@@ -1,1 +1,1 @@
-web: godep go run main.go
+web: go-nie-api

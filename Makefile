@@ -5,7 +5,6 @@ LIN_EXE=$(APP_NAME)-linux-amd64-$(TAG_NAME)
 WIN_EXE=$(APP_NAME)-windows-amd64-$(TAG_NAME).exe
 
 get:
-	go get -u github.com/gin-gonic/gin/...
 	go get -u github.com/humbertodias/go-nie-crawler
 
 run:
