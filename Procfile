@@ -1,1 +1,1 @@
-web: make get && make run
+web: go get -u github.com/gin-gonic/gin/... && go get -u github.com/humbertodias/go-nie-crawler && go run main.go
