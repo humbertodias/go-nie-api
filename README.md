@@ -2,17 +2,15 @@
 
 # API using GO
 
-Simple API that crawles the website sede.administracionespublicas.gob.es and publish the offices and procedures that each one can deal with.
+Simple API that crawles the website [sede.administracionespublicas.gob.es](https://sede.administracionespublicas.gob.es) and publish the offices and procedures that each one can deal with.
 
-# Clone
+# Install
 
-    mkdir -p ~/go/src/github.com/humbertodias && cd $_
-    git clone https://github.com/humbertodias/go-nie-api
-    cd go-nie-api
+    go install github.com/humbertodias/go-nie-api
 
 # Run
 
-    make run
+    go-nie-api
 
 # Api
 
