@@ -13,6 +13,7 @@ func main() {
 	if p := os.Getenv("PORT"); p != "" {
 		PORT = p
 	}
+	go handler.Init()
 	http.HandleFunc("/", handler.ShowApi)
 	http.HandleFunc("/provincias", handler.GetProvincias)
 	http.HandleFunc("/tramites", handler.GetTramites)

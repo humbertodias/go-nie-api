@@ -5,12 +5,19 @@ import (
 	"fmt"
 	"net/http"
 
+	. "github.com/humbertodias/go-nie-crawler/model"
 	"github.com/humbertodias/go-nie-crawler/nie"
 )
 
-var provincias = nie.ScrapyProvincias()
-var tramites = nie.ScrapyTramites(provincias)
-var oficinas = nie.ScrapyOficinas(tramites)
+var provincias []Provincia
+var tramites []Tramite
+var oficinas []Oficina
+
+func Init() {
+	provincias = nie.ScrapyProvincias()
+	tramites = nie.ScrapyTramites(provincias)
+	oficinas = nie.ScrapyOficinas(tramites)
+}
 
 func ShowApi(w http.ResponseWriter, r *http.Request) {
 	endpoints := `
