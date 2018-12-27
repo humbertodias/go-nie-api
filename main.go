@@ -3,19 +3,22 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/humbertodias/go-nie-api/handler"
 )
 
-const PORT = 8080
-
 func main() {
+	PORT := "8080"
+	if p := os.Getenv("PORT"); p != "" {
+		PORT = p
+	}
 	http.HandleFunc("/", handler.ShowApi)
 	http.HandleFunc("/provincias", handler.GetProvincias)
 	http.HandleFunc("/tramites", handler.GetTramites)
 	http.HandleFunc("/oficinas", handler.GetOficinas)
 
-	fmt.Printf("Listening at http://0.0.0.0:%d\n", PORT)
-	addr := fmt.Sprintf(":%d", PORT)
+	fmt.Printf("Listening at http://0.0.0.0:%s\n", PORT)
+	addr := fmt.Sprintf(":%s", PORT)
 	http.ListenAndServe(addr, nil)
 }
