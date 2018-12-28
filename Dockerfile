@@ -1,8 +1,5 @@
 FROM golang:latest
-ENV WKDIR /go/src/github.com/humbertodias/go-nie-api
-RUN mkdir -p ${WKDIR}
-ADD . ${WKDIR}
+ENV REPO_URL github.com/humbertodias/go-nie-api
+RUN go get ${REPO_URL} && go install ${REPO_URL}
+CMD go-nie-api
 EXPOSE 8080
-WORKDIR ${WKDIR}
-RUN make get
-CMD make run
