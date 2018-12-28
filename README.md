@@ -9,8 +9,6 @@ Simple API that crawles the website [sede.administracionespublicas.gob.es](https
     REPO_URL=github.com/humbertodias/go-nie-api
     go get $(REPO_URL) && go install $(REPO_URL)
 
-    go install github.com/humbertodias/go-nie-api
-
 # Run
 
     go-nie-api
