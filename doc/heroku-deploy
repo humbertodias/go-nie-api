@@ -1,0 +1,23 @@
+http://play-with-docker.com
+
+# go
+apk add go
+
+# docker
+REPO_URL=github.com/humbertodias/go-nie-api
+go get $REPO_URL
+
+cd $HOME/go/src/$REPO_URL
+make docker-build
+
+# heroku
+apk add --update nodejs nodejs-npm
+curl https://cli-assets.heroku.com/install.sh | sh
+
+HEROKU_APP=nie-api
+
+heroku login --interactive
+heroku container:login
+heroku container:push web -a $HEROKU_APP
+heroku container:release web -a $HEROKU_APP
+heroku open -a $HEROKU_APP
