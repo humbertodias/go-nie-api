@@ -8,6 +8,14 @@ import (
 	"strconv"
 )
 
+func NifLetterFromString(sNumber string) byte {
+	number, err := strconv.Atoi(sNumber)
+	if err != nil {
+		fmt.Errorf("NieLetter invalid: %v", err)
+	}
+	return NifLetter(number)
+}
+
 func NifLetter(number int) byte {
 	nifSeq := "TRWAGMYFPDXBNJZSQVHLCKE"
 	index := int(number % len(nifSeq))
@@ -21,7 +29,7 @@ func NifRandomNumber(length int) int {
 
 func NifRandom() string {
 	number := NifRandomNumber(8)
-	return fmt.Sprintf("%d%c", number, NifLetter(number))
+	return fmt.Sprintf("%08d%c", number, NifLetter(number))
 }
 
 func NifValid(nif string) bool {
