@@ -24,6 +24,9 @@ func ShowApi(w http.ResponseWriter, r *http.Request) {
 	<a href="/provincias">/provincias</a> <br>
 	<a href="/tramites">/tramites</a> <br>
 	<a href="/oficinas">/oficinas</a> <br>
+	<a href="/nif">/nif</a> <br>
+	<a href="/nie">/nie</a> <br>
+	<a href="/dni">/dni</a> <br>
 	`
 	fmt.Fprintln(w, endpoints)
 }

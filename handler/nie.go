@@ -8,12 +8,9 @@ import (
 )
 
 func NieRandom() string {
-	available_letters := "XYZ"
-	index := rand.Intn(len(available_letters))
-	first_letter := available_letters[index]
-	first_letter_value := int(first_letter)
+	first_letter := "XYZ"[rand.Intn(3)]
 	number_part := NifRandomNumber()
-	number_for_calculation := fmt.Sprintf("%d%d", first_letter_value, number_part)
+	number_for_calculation := fmt.Sprintf("%d%d", int(first_letter), number_part)
 	number_for_calculation_int, _ := strconv.Atoi(number_for_calculation)
 	return fmt.Sprintf("%c%d%c", first_letter, number_part, NifLetter(number_for_calculation_int))
 }
