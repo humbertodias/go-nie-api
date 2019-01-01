@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"regexp"
+	"strings"
 )
 
 func NieRandom() string {
@@ -17,6 +18,11 @@ func NieValid(nif string) bool {
 	return re.MatchString(nif)
 }
 
+func NieCheckFirstLetter(nie string) bool {
+	firstLetter := nie[0:1]
+	return strings.ContainsAny(firstLetter, "X & Y & Z")
+}
+
 func NieCheckDigit(nie string) bool {
-	return NifCheckDigit(nie, 1)
+	return NieCheckFirstLetter(nie) && NifCheckDigit(nie, 1)
 }
