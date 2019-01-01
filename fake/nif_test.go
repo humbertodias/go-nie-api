@@ -3,9 +3,11 @@ package fake
 import "testing"
 
 func TestNif(t *testing.T) {
-	Seed(1234)
 	nif := NifRandom()
-	if !NifValid(nif) || nif != "75231682Q" {
+	if !NifValid(nif) {
 		t.Errorf("Nif invalid, got: %s", nif)
+	}
+	if !NifCheckDigit(nif, 0) {
+		t.Errorf("Nif invalid digit, got: %s", nif)
 	}
 }

@@ -5,9 +5,11 @@ import (
 )
 
 func TestNie(t *testing.T) {
-	Seed(1234)
 	nie := NieRandom()
-	if !NieValid(nie) || nie != "Z1458315T" {
+	if !NieValid(nie) {
 		t.Errorf("Nie invalid, got: %s", nie)
+	}
+	if !NieCheckDigit(nie) {
+		t.Errorf("Nie invalid digit, got: %s", nie)
 	}
 }

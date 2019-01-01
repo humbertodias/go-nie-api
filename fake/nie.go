@@ -16,3 +16,7 @@ func NieValid(nif string) bool {
 	re := regexp.MustCompile(`(^[XYZ]\d{7})[A-HJ-NP-TV-Z]$`)
 	return re.MatchString(nif)
 }
+
+func NieCheckDigit(nie string) bool {
+	return NifCheckDigit(nie, 1)
+}
