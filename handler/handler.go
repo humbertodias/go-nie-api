@@ -3,6 +3,7 @@ package handler
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/humbertodias/go-nie-api/fake"
 	"net/http"
 
 	. "github.com/humbertodias/go-nie-crawler/model"
@@ -44,15 +45,15 @@ func GetOficinas(w http.ResponseWriter, r *http.Request) {
 }
 
 func RandomNif(w http.ResponseWriter, r *http.Request) {
-	ToJson(NifRandom(), w)
+	ToJson(fake.NifRandom(), w)
 }
 
 func RandomNie(w http.ResponseWriter, r *http.Request) {
-	ToJson(NieRandom(), w)
+	ToJson(fake.NieRandom(), w)
 }
 
 func RandomDni(w http.ResponseWriter, r *http.Request) {
-	ToJson(DniRandom(), w)
+	ToJson(fake.DniRandom(), w)
 }
 
 func ToJson(arr interface{}, w http.ResponseWriter) {
