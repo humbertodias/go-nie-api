@@ -18,6 +18,9 @@ func main() {
 	http.HandleFunc("/provincias", handler.GetProvincias)
 	http.HandleFunc("/tramites", handler.GetTramites)
 	http.HandleFunc("/oficinas", handler.GetOficinas)
+	http.HandleFunc("/nif", handler.RandomNif)
+	http.HandleFunc("/nie", handler.RandomNie)
+	http.HandleFunc("/dni", handler.RandomDni)
 
 	fmt.Printf("Listening at http://0.0.0.0:%s\n", PORT)
 	addr := fmt.Sprintf(":%s", PORT)

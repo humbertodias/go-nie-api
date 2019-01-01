@@ -1,51 +1,24 @@
 package handler
 
 import (
-	"encoding/json"
 	"fmt"
-	"net/http"
-
-	. "github.com/humbertodias/go-nie-crawler/model"
-	"github.com/humbertodias/go-nie-crawler/nie"
+	"math/rand"
+	"regexp"
+	"strconv"
 )
 
-var provincias []Provincia
-var tramites []Tramite
-var oficinas []Oficina
-
-func Init() {
-	provincias = nie.ScrapyProvincias()
-	tramites = nie.ScrapyTramites(provincias)
-	oficinas = nie.ScrapyOficinas(tramites)
+func NieRandom() string {
+	available_letters := "XYZ"
+	index := rand.Intn(len(available_letters))
+	first_letter := available_letters[index]
+	first_letter_value := int(first_letter)
+	number_part := NifRandomNumber()
+	number_for_calculation := fmt.Sprintf("%d%d", first_letter_value, number_part)
+	number_for_calculation_int, _ := strconv.Atoi(number_for_calculation)
+	return fmt.Sprintf("%c%d%c", first_letter, number_part, NifLetter(number_for_calculation_int))
 }
 
-func ShowApi(w http.ResponseWriter, r *http.Request) {
-	endpoints := `
-	<a href="/provincias">/provincias</a> <br>
-	<a href="/tramites">/tramites</a> <br>
-	<a href="/oficinas">/oficinas</a> <br>
-	`
-	fmt.Fprintln(w, endpoints)
-}
-
-func GetProvincias(w http.ResponseWriter, r *http.Request) {
-	ToJson(provincias, w)
-}
-
-func GetTramites(w http.ResponseWriter, r *http.Request) {
-	ToJson(tramites, w)
-}
-
-func GetOficinas(w http.ResponseWriter, r *http.Request) {
-	ToJson(oficinas, w)
-}
-
-func ToJson(arr interface{}, w http.ResponseWriter) {
-	js, err := json.Marshal(arr)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	w.Header().Set("Content-Type", "application/json")
-	w.Write(js)
+func NieValid(nif string) bool {
+	re := regexp.MustCompile(`(^[XYZ]\d{7}\d?|^\d{8})[A-HJ-NP-TV-Z]$`)
+	return re.MatchString(nif)
 }
