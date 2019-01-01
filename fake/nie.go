@@ -10,7 +10,7 @@ import (
 func NieRandom() string {
 	firstLetter := "XYZ"[rand.Intn(3)]
 	middleNumber := NifRandomNumber(7)
-	return fmt.Sprintf("%c%d%c", firstLetter, middleNumber, NifLetter(middleNumber))
+	return fmt.Sprintf("%c%07d%c", firstLetter, middleNumber, NifLetter(middleNumber))
 }
 
 func NieValid(nif string) bool {
