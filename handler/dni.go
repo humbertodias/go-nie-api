@@ -6,7 +6,7 @@ import (
 )
 
 func DniRandom() string {
-	number := NifRandomNumber()
+	number := NifRandomNumber(8)
 	return fmt.Sprintf("%08d%c", number, NifLetter(number))
 }
 

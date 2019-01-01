@@ -2,6 +2,7 @@ package handler
 
 import (
 	"fmt"
+	"math"
 	"math/rand"
 	"regexp"
 )
@@ -12,12 +13,13 @@ func NifLetter(number int) byte {
 	return nifSeq[index]
 }
 
-func NifRandomNumber() int {
-	return rand.Intn(100000000)
+func NifRandomNumber(length int) int {
+	number := int(math.Pow10(length))
+	return rand.Intn(number)
 }
 
 func NifRandom() string {
-	number := NifRandomNumber()
+	number := NifRandomNumber(8)
 	return fmt.Sprintf("%d%c", number, NifLetter(number))
 }
 
